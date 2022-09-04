@@ -1,0 +1,87 @@
+                                                // * Javascrpt Hoisting * //
+
+ // JS engine executes js code -----> creates GEC -----> GEC has tow Phases ------> i) Creation 
+                                                                                //  ii) Execution 
+
+// during creation phase , JS engine moves the variable and function declarations to the top of the code, this is known as hoisting in JS.
+ 
+// Variable Hoisting : - 
+            // variable hoisting means js engine moves variable declarations to the top of the script 
+            // Example 
+
+            console.log(counter);
+            var counter = 1;  //  Output : undefined 
+
+// here we are referencing variable counter even before its declaration , still 1st line of code does not cuase an error because js engine moves
+// its declaration to the top 
+
+            //  Let keyword 
+
+            console.log(counter1);
+            let counter1 = 1; // ReferenceError , cannot access 'counter1' before initialization
+
+// Here error explain us that variable counter is already in heap memory. however, it hasn't been initialized
+// that means js engine hoists the variable declaration that uses let keyword.However it does not initialize let variables.
+
+// if we access the variable that doesnt exist js engine throws different error : eg : 
+
+            console.log(alien);
+            let car = "honda"; 
+
+            // ReferenceError, alien is not defined
+                                            // * Function Hoisting * // 
+                                            
+// like variables, JS engine also hoists the function declaration. That is js engine moves function declaration too to the top of the script
+// Example : 
+
+            let x = 25;
+            y = 35;
+
+            let result = add(x, y);
+            console.log(result);
+
+            function add(a, b){
+                return a + b;
+            }
+
+            // Output : 60;
+
+// here in example we have called the function add() before defineing it 
+// during creation phase js engine places the add() fun declaration in the heap memory.
+// Js engine creates an object of functinon type , when gets call add() it only refers to that object.
+
+                                        // * Function Expression * // 
+
+// Example :
+
+            let x = 20;
+            y = 30;
+
+            let result = add (x, y);
+
+            console.log(result);
+
+            let add = function(a, b){
+                return a + b;
+            }
+                             
+            // Output : ReferenceError : cannot access 'add' before initialization 
+
+// Example arrow function : 
+
+            let x = 15;
+            y = 20;
+
+            let result = add (x, y);
+
+            console.log(result);
+
+            let add = (a, b) => a + b ;
+
+            // Output : if var : TypeError, add is not a function 
+            //          if let : ReferenceError, cannot access add before its initialization 
+
+// :-> Javascript hoisting occurs during the creation phase of the execution context that moves the variable and function declarations to the 
+// top of the script.
+// The javascript engine hoist the variables declared using let keyword, but doesn't initialize them as the variables declared with the var keyword 
+// The javascript engine doesn't hoist the function expression and arrow functions
