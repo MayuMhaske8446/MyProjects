@@ -5,5 +5,3 @@
 let circles = [10, 20, 30];
 
 console.log((circles.map()));
-
-let rates = [1, 2, 3];
