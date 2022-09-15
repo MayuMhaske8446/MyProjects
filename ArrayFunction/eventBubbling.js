@@ -1,16 +1,14 @@
-function random(number){
-  return Math.floor(Math.random() * (number + 1));
+// Example 1
+const output = document.querySelector("#output");
+
+function handleClick(e){
+    output.textContent += `You have clicked ${e.currentTarget.tagName} element\n`;
 }
 
-const btn = document.querySelector("button");
+const container = document.querySelector("#demo");
+const button = document.querySelector("button");
 
+container.addEventListener("click", handleClick);
+button.addEventListener("click", handleClick);
+document.body.addEventListener("click", handleClick);
 
- btn.addEventListener("click", xyz);
-
-function xyz(e){
-setTimeout(function(){
-		const rndCol = `rgb(${random(255)}, ${random(255)}, ${random(255)})`
-    e.target.style.backgroundColor = rndCol;
-    xyz(e);
-}, 500);
-}
